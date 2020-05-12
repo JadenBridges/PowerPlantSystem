@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFBD7DB8-56A7-49A1-A478-7560264F4C2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PowerPlantSystem</RootNamespace>
+    <AssemblyName>PowerPlantSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractSensorControlProgram.cs" />
+    <Compile Include="AddComponentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddComponentForm.Designer.cs">
+      <DependentUpon>AddComponentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddReactorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReactorForm.Designer.cs">
+      <DependentUpon>AddReactorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalcMaxThread.cs" />
+    <Compile Include="ComponentAC.cs" />
+    <Compile Include="ComponentFactory.cs" />
+    <Compile Include="ComponentIF.cs" />
+    <Compile Include="Components\Containment_System.cs" />
+    <Compile Include="Components\Cooling_System.cs" />
+    <Compile Include="Components\Pressure_Vessel.cs" />
+    <Compile Include="Components\Ventilation_System.cs" />
+    <Compile Include="ControlPrograms\PressureControlProgram.cs" />
+    <Compile Include="ControlPrograms\RadiationControlProgram.cs" />
+    <Compile Include="ControlPrograms\TempControlProgram.cs" />
+    <Compile Include="FactoryIF.cs" />
+    <Compile Include="FilterAC.cs" />
+    <Compile Include="FilterIF.cs" />
+    <Compile Include="Filters\CelsiusFilter.cs" />
+    <Compile Include="Filters\IntegerFilter.cs" />
+    <Compile Include="Filters\KpaFilter.cs" />
+    <Compile Include="Filters\RadFilter.cs" />
+    <Compile Include="ObservableIF.cs" />
+    <Compile Include="ObserverIF.cs" />
+    <Compile Include="PowerPlantSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PowerPlantSystem.Designer.cs">
+      <DependentUpon>PowerPlantSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RCFactory.cs" />
+    <Compile Include="RCIF.cs" />
+    <Compile Include="ReactorAC.cs" />
+    <Compile Include="ReactorFactory.cs" />
+    <Compile Include="ReactorIF.cs" />
+    <Compile Include="Reactors\BWR_Reactor.cs" />
+    <Compile Include="Reactors\FBR_Reactor.cs" />
+    <Compile Include="Reactors\PWR_Reactor.cs" />
+    <Compile Include="SensorAC.cs" />
+    <Compile Include="SensorIF.cs" />
+    <Compile Include="Sensors\PressureSensor.cs" />
+    <Compile Include="Sensors\RadiationSensor.cs" />
+    <Compile Include="Sensors\TemperatureSensor.cs" />
+    <Compile Include="SetDataThread.cs" />
+    <Compile Include="TerminationObservable.cs" />
+    <Compile Include="CurrentReactorThread.cs" />
+    <EmbeddedResource Include="AddComponentForm.resx">
+      <DependentUpon>AddComponentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReactorForm.resx">
+      <DependentUpon>AddReactorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PowerPlantSystem.resx">
+      <DependentUpon>PowerPlantSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
